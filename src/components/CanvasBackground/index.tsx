@@ -1,16 +1,10 @@
-import { Component, onMount, onCleanup, createSignal, createEffect } from "solid-js";
+import { Component, onMount, onCleanup } from "solid-js";
 
 import styles from "./CanvasStyle.module.scss";
 
 const CIRCLE_AMMOUNT = 40;
 const CIRCLE_RADIUS = 3;
-const GAP = 40;
-const Y_OFFSET = window.innerHeight / 3;
-const X_OFFSET = window.innerWidth / 3;
-const Y_CENTER = window.innerHeight / 2;
-const X_CENTER = window.innerWidth / 2;
-
-const overHalf = (n: number) => CIRCLE_AMMOUNT / 2 > n;
+const GAP = 60;
 const pos = {
     x: 0,
     y: 0,
@@ -77,9 +71,6 @@ const CanvasBackgroud: Component = () => {
         pos.x = -1;
         pos.y = -1;
     });
-    // createEffect(() => {
-    //     console.log("x: ", pos.x, "y: ", pos.y);
-    // });
     onMount(() => {
         const ctx = canvas.getContext("2d")!;
         let frame = requestAnimationFrame(loop);

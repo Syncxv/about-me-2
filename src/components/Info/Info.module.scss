@@ -20,6 +20,8 @@
     border-radius: 500px;
     top: 25px;
     right: 25px;
+    // transform: scale(1) !important;
+    transform-origin: top right;
     color: black;
     padding: 1.5rem;
     cursor: pointer;
@@ -27,4 +29,12 @@
     width: 2rem;
     height: 2rem;
     background-color: white;
+    opacity: 0;
+    animation: fade-thingy 200ms ease 800ms forwards;
+}
+
+@keyframes fade-thingy {
+    100% {
+        opacity: 1;
+    }
 }

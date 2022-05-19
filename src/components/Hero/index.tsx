@@ -7,7 +7,7 @@ const Hero: Component = () => {
         console.log(opend());
     });
     return (
-        <div onClick={() => setOpenState(true)} class={`${styles.hero} ${opend() ? styles.hide : ""}`}>
+        <div onClick={() => setOpenState(true)} class={`hero ${opend() ? styles.hide : ""}`}>
             <h1>Aria</h1>
             <div className="line"></div>
             <div className={styles.descWrapper}>

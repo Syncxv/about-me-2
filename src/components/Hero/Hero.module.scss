@@ -7,10 +7,7 @@
         justify-content: center;
         cursor: pointer;
         user-select: none;
-        &.fade-enter {
-            transform: scale(0.7);
-            opacity: 0;
-        }
+        &.fade-enter,
         &.fade-exit-to {
             transform: scale(0.7);
             opacity: 0;

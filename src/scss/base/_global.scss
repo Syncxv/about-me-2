@@ -36,7 +36,7 @@ body {
 
 .fade-enter-active,
 .fade-exit-active {
-    transition: transform 500ms cubic-bezier(0, 0.63, 0.25, 1), opacity 500ms ease;
+    transition: transform 500ms cubic-bezier(0.24, 0.07, 0.16, 0.98), opacity 500ms ease;
 }
 .fade-enter,
 .fade-exit-to {

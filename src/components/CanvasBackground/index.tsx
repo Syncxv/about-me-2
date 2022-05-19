@@ -14,7 +14,7 @@ const overHalf = (n: number) => CIRCLE_AMMOUNT / 2 > n;
 const pos = {
     x: 0,
     y: 0,
-    radius: 100,
+    radius: 75,
 };
 
 const onMouseMove = (e: MouseEvent) => {
@@ -93,7 +93,7 @@ const CanvasBackgroud: Component = () => {
 
         function loop() {
             frame = requestAnimationFrame(loop);
-            ctx.fillStyle = "rgb(0,0,0, 0.4)";
+            ctx.fillStyle = "rgb(0,0,0, 0.8)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             bruh.forEach((elem) => {
                 elem.update();

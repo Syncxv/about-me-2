@@ -6,8 +6,8 @@ const Hero: Component = () => {
         console.log(opend());
     });
     return (
-        <div className={styles.wrapper}>
-            <div onClick={() => setOpenState(!opend())} class={styles.hero}>
+        <div className={styles.wrapper} style={{ [opend() ? "--cirlce-width" : ""]: "60rem" }}>
+            <div onClick={() => setOpenState(!opend())} class={`${styles.hero} ${opend() && styles.hide}`}>
                 <h1>Aria</h1>
                 <div className="line"></div>
                 <div className={styles.descWrapper}>

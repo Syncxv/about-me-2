@@ -4,11 +4,11 @@ import Hero from "./components/Hero";
 
 const App: Component = () => {
     return (
-        <div>
+        <>
             <div className="border"></div>
             <Hero />
             <CanvasBackgroud />
-        </div>
+        </>
     );
 };
 

@@ -2,9 +2,9 @@ import { Component, onMount, onCleanup, createSignal, createEffect } from "solid
 
 import styles from "./CanvasStyle.module.scss";
 
-const CIRCLE_AMMOUNT = 80;
-const CIRCLE_RADIUS = 2;
-const GAP = 20;
+const CIRCLE_AMMOUNT = 40;
+const CIRCLE_RADIUS = 3;
+const GAP = 40;
 const Y_OFFSET = window.innerHeight / 3;
 const X_OFFSET = window.innerWidth / 3;
 const Y_CENTER = window.innerHeight / 2;
@@ -73,6 +73,10 @@ class Circle {
 const CanvasBackgroud: Component = () => {
     let canvas: HTMLCanvasElement;
     document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseout", () => {
+        pos.x = -1;
+        pos.y = -1;
+    });
     // createEffect(() => {
     //     console.log("x: ", pos.x, "y: ", pos.y);
     // });

@@ -17,10 +17,6 @@
         transition: 500ms cubic-bezier(0.77, 0.07, 0.25, 1);
         transition-delay: 300ms;
     }
-    .hide {
-        transform: scale(0.7);
-        opacity: 0;
-    }
     .hero {
         display: flex;
         position: relative;

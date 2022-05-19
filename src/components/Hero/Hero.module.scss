@@ -15,9 +15,19 @@
         z-index: -1;
     }
     & > h1 {
+        position: relative;
         font-size: 4rem;
         font-family: "Times New Roman", Times, serif;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0.5rem;
+            height: 2px;
+            width: 100%;
+            background-color: #7209b7;
+        }
     }
+
     .descWrapper {
         display: flex;
         flex-direction: column;

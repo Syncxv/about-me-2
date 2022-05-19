@@ -5,6 +5,11 @@ import styles from "./CanvasStyle.module.scss";
 const CIRCLE_AMMOUNT = 40;
 const CIRCLE_RADIUS = 3;
 const GAP = 60;
+
+let canvas: HTMLCanvasElement;
+let h: number;
+let w: number;
+let circles: Circle[] = [];
 const pos = {
     x: 0,
     y: 0,
@@ -15,6 +20,10 @@ const onMouseMove = (e: MouseEvent) => {
     pos.x = e.clientX;
     pos.y = e.clientY;
 };
+const onMouseOut = () => {
+    pos.x = -1;
+    pos.y = -1;
+};
 
 class Circle {
     ctx: CanvasRenderingContext2D;
@@ -24,10 +33,10 @@ class Circle {
     origY: number;
     size: number;
     speed: number;
-    constructor(ctx: CanvasRenderingContext2D, i: number, j: number) {
+    constructor(ctx: CanvasRenderingContext2D, x: number, y: number) {
         this.ctx = ctx;
-        this.origX = CIRCLE_RADIUS * 2 * j + GAP * j;
-        this.origY = CIRCLE_RADIUS * 2 * i + GAP * i;
+        this.origX = x;
+        this.origY = y;
         this.x = this.origX;
         this.y = this.origY;
         this.size = CIRCLE_RADIUS;
@@ -65,28 +74,28 @@ class Circle {
     }
 }
 const CanvasBackgroud: Component = () => {
-    let canvas: HTMLCanvasElement;
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseout", () => {
-        pos.x = -1;
-        pos.y = -1;
-    });
     onMount(() => {
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseout", onMouseOut);
+        document.addEventListener("resize", onResize);
         const ctx = canvas.getContext("2d")!;
         let frame = requestAnimationFrame(loop);
+        function onResize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
 
-        let bruh: Circle[] = [];
-        for (let i = 0; i < CIRCLE_AMMOUNT; ++i) {
-            for (let j = 0; j < CIRCLE_AMMOUNT; ++j) {
-                bruh.push(new Circle(ctx, i, j));
+            for (let y = (((h - GAP) % GAP) + GAP) / 2; y < h; y += GAP) {
+                for (let x = (((w - GAP) % GAP) + GAP) / 2; x < w; x += GAP) {
+                    circles.push(new Circle(ctx, x, y));
+                }
             }
         }
-
+        onResize();
         function loop() {
             frame = requestAnimationFrame(loop);
             ctx.fillStyle = "rgb(0,0,0, 0.8)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            bruh.forEach((elem) => {
+            circles.forEach((elem) => {
                 elem.update();
                 elem.draw();
             });
@@ -94,7 +103,9 @@ const CanvasBackgroud: Component = () => {
 
         onCleanup(() => {
             cancelAnimationFrame(frame);
-            document.removeEventListener;
+            document.removeEventListener("resize", onResize);
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseout", onMouseOut);
         });
     });
 

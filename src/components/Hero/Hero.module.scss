@@ -1,0 +1,30 @@
+.hero {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    &::before {
+        content: "";
+        position: absolute;
+        height: 25rem;
+        width: 25rem;
+        background: radial-gradient(#000000 0%, rgba(0, 0, 0, 0.93) 70%);
+        border-radius: 50%;
+        z-index: -1;
+    }
+    & > h1 {
+        font-size: 4rem;
+        font-family: "Times New Roman", Times, serif;
+    }
+    .descWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+        & > p {
+            line-height: 1.8rem;
+        }
+    }
+}

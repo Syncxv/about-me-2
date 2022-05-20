@@ -24,6 +24,8 @@ body {
     &::before {
         content: "";
         position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
         height: var(--cirlce-width);
         width: var(--cirlce-width);
         background: radial-gradient(#000000 0%, rgba(0, 0, 0, 0.93) 70%);

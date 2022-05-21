@@ -1,6 +1,20 @@
 .ok {
     --spacing: 42px;
     --opacity: 0;
+    &.black {
+        --bg: #000;
+    }
+    &.white {
+        color: black;
+        --bg: #ffffff;
+    }
+    &.green {
+        --bg: #1ed860;
+    }
+    &.red {
+        --bg: #d81e1e;
+    }
+
     display: flex;
     position: relative;
     .content {
@@ -53,7 +67,7 @@
             // position: absolute;
             top: -40px;
             font-size: 0.875rem;
-            background-color: #1ed860;
+            background-color: var(--bg);
             padding: 0.3rem;
             border-radius: 4px;
             opacity: var(--opacity);
@@ -65,7 +79,7 @@
             width: 0;
             height: 0;
             border: 5px solid transparent;
-            border-top-color: #1ed860;
+            border-top-color: var(--bg);
             opacity: var(--opacity);
             transition: opacity 200ms ease;
             pointer-events: none;

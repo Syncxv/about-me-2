@@ -24,7 +24,7 @@ const InfoStuff: Component = () => {
                             }}
                             className={`${styles.item}`}
                         >
-                            <ToolTipThingy text="Copied" position="right" ref={ref} onClick={() => console.log("hi")} opacity={0}>
+                            <ToolTipThingy ref={ref} color="green" text="Copied" position="top">
                                 {() => <Discord />}
                             </ToolTipThingy>
                         </span>

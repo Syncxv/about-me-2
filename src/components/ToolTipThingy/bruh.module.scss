@@ -1,0 +1,90 @@
+.ok {
+    --spacing: 42px;
+    --opacity: 0;
+    &.black {
+        --bg: #000;
+    }
+    &.white {
+        .tooltip {
+            color: black;
+        }
+        --bg: #ffffff;
+    }
+    &.green {
+        --bg: #1ed860;
+    }
+    &.red {
+        --bg: #d81e1e;
+    }
+
+    display: flex;
+    position: relative;
+    .content {
+        display: contents;
+    }
+    .tooltip {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        z-index: 10;
+        &.top {
+            top: calc(var(--spacing) * -1);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &.bottom {
+            top: var(--spacing);
+            left: 50%;
+            transform: translateX(-50%);
+            flex-direction: column-reverse;
+            .thingy {
+                transform: rotate(180deg);
+            }
+        }
+
+        &.left {
+            top: 50%;
+            left: calc(var(--spacing) * -1);
+            transform: translate(-50%, -50%);
+            flex-direction: row;
+            .thingy {
+                transform: rotate(-90deg);
+            }
+        }
+        &.right {
+            top: 50%;
+            right: calc(var(--spacing) * -1);
+            transform: translate(50%, -50%);
+            flex-direction: row;
+            flex-direction: row-reverse;
+            .thingy {
+                transform: rotate(90deg);
+            }
+        }
+        .text {
+            // position: absolute;
+            top: -40px;
+            font-size: 0.875rem;
+            background-color: var(--bg);
+            padding: 0.3rem;
+            border-radius: 4px;
+            opacity: var(--opacity);
+            transition: opacity 200ms ease;
+            white-space: nowrap;
+        }
+        .thingy {
+            // position: absolute;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: var(--bg);
+            opacity: var(--opacity);
+            transition: opacity 200ms ease;
+            pointer-events: none;
+        }
+    }
+}

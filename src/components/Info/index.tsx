@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import { Component, For } from "solid-js";
 import { setOpenState } from "../../App";
 import styles from "./Info.module.scss";
 import PFP from "../../assets/pfp.png";
@@ -7,8 +7,9 @@ import copy from "../../util/copy";
 import Steam from "../Icons/Steam";
 import Github from "../Icons/Github";
 import switchClass from "../../util/switchClass";
+import ToolTipThingy from "../ToolTipThingy";
+let ref: HTMLElement;
 const InfoStuff: Component = () => {
-    let ref: HTMLElement;
     return (
         <>
             <div className={styles.infoWrapper}>
@@ -17,14 +18,15 @@ const InfoStuff: Component = () => {
                     <h2>Aria</h2>
                     <div className={styles.contact}>
                         <span
-                            ref={(el) => (ref = el)}
                             onClick={() => {
                                 copy("Aria#8171");
                                 switchClass(ref);
                             }}
-                            className={`${styles.item} ${styles.discord}`}
+                            className={`${styles.item}`}
                         >
-                            <Discord />
+                            <ToolTipThingy text="Copied" position="right" ref={ref} onClick={() => console.log("hi")} opacity={0}>
+                                {() => <Discord />}
+                            </ToolTipThingy>
                         </span>
                         <a href="https://steamcommunity.com/id/__Aria__" target="_blank" className={styles.item}>
                             <Steam />

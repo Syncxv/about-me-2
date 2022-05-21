@@ -47,7 +47,7 @@ const InfoStuff: Component = () => {
                                                         onMouseLeave();
                                                     }}
                                                 >
-                                                    <div onClick={onMouseLeave}>
+                                                    <div style={{ display: "flex" }} onClick={onMouseLeave}>
                                                         <Discord />
                                                     </div>
                                                 </div>

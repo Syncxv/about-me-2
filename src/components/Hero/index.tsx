@@ -9,9 +9,9 @@ const Hero: Component = () => {
     });
     return (
         <ToolTipThingy text="CLICK ME" position="top">
-            {(onMouseOver, onMouseLeave) => (
+            {(onMouseEnter, onMouseLeave) => (
                 <div
-                    onMouseOver={onMouseOver}
+                    onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}
                     onClick={() => setOpenState(true)}
                     class={`hero ${opend() ? styles.hide : ""}`}

@@ -13,7 +13,7 @@ interface Props {
     position: "top" | "bottom" | "left" | "right";
     ref?: HTMLElement;
 
-    children: (onMouseOver: () => any, onMouseLeave: () => any) => JSX.Element;
+    children: (onMouseEnter: () => any, onMouseLeave: () => any) => JSX.Element;
 }
 
 const ToolTipThingy = ({ ref, text, position, color = "white", opacity = 0, onClick = () => {}, ...props }: Props) => {
